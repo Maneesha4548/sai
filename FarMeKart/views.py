@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from FarMeKart.forms import UsregFo,ChpwdForm,UpdPfle,Vegfr,UpdVgtab,Userp,Usperm
+from FarMeKart.forms import UsregFo,ChpwdForm,UpdPfle,Vegfr,UpdVgtab,Userp,Usperm,UpdPfle1,UpdPfle2
 from django.contrib.auth.decorators import login_required
 from farmer import settings
 from django.core.mail import send_mail
@@ -171,6 +171,24 @@ def userdelete(request,id):
 	c.delete()
 	c.save()
 	return redirect('/gper')
+def updateprofile(request):
+	return render(request,'html/profileupdate.html')
+def orgupdate(request):
+	z=User.objects.get(id=request.user.id)
+	if request.method == "POST":
+		p=UpdPfle1(request.POST,instance=z)
+		q=UpdPfle2(request.POST,instance=z)
+		r=UpdPfle(request.POST,instance=z)
+		if p.is_valid() and q.is_valid() and r.is_valid():
+			p.save()
+			q.save()
+			r.save()
+			return redirect('/profile')
+	p=UpdPfle1(instance=z)
+	q=UpdPfle2(instance=z)
+	r=UpdPfle(instance=z)
+	return render(request,'html/updatedetails.html',{'u':p,'p':q,'k':r})
+
 		
 		
 	

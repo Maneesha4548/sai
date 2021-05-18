@@ -21,7 +21,9 @@ urlpatterns = [
     path('ct/',views.cart,name="ca"),
     path('us/',views.usr,name="cb"),
     path('reqp/',views.requestform,name='pm'),
-     path('gper/',views.adminpermissions,name='gperm'),
-     path('eper/<int:k>/',views.updatepermissions,name='up'),
-     path('dele/<int:id>/',views.userdelete,name='delete'),
+    path('gper/',views.adminpermissions,name='gperm'),
+    path('eper/<int:k>/',views.updatepermissions,name='up'),
+    path('dele/<int:id>/',views.userdelete,name='delete'),
+    path('profile/',views.updateprofile,name="profile"),
+    path('orgup/',views.orgupdate,name="orgup"),
 ]

@@ -32,6 +32,48 @@ class Usperm(forms.ModelForm):
 		  "email":forms.EmailInput(attrs={"class":"form-control","readOnly":True,}),
 		 "role":forms.Select(attrs={"class":"form-control"}),
 		}
+class UpdPfle1(forms.ModelForm):
+	class Meta:
+		model = User
+		fields=["Farmer_name","Farm_size","Pass_book_no","Country","State","Village","Postal_code"]
+		widgets={
+		 "Farmer_name":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Farmer_name",}),
+		 "Farm_size":forms.NumberInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Farm_size",
+			}),
+		 "Pass_book_no":forms.NumberInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Pass_book_no",
+			}),
+		 "Country":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Country",}),
+		 "State":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter State",}),
+		 "Village":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Village",}),
+		 "Postal_code":forms.NumberInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Postal_code",
+			}),
+		}
+class UpdPfle2(forms.ModelForm):
+	class Meta:
+		model = User
+		fields=["Restaurant_name","Manager_name","Staff_count","Restaurantarea","State","Country","Postal_code"]
+		widgets={
+		 "Restaurant_name":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Restaurant_name",}),
+		 "Manager_name":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Manager_name",}),
+		 "Staff_count":forms.NumberInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Staff_count",
+			}),
+		 "Country":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Country",}),
+		 "State":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter State",}),
+		 "Postal_code":forms.NumberInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Postal_code",
+			}),
+
+		}
+
 
 class UpdPfle(forms.ModelForm):
 	class Meta:
